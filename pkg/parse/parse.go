@@ -13,11 +13,12 @@ type Description struct {
 	OpenAPI string `yaml:"openapi"`
 }
 
+// Parse reads a yaml OpenAPI 3.0 specification and return a Description.
 func Parse(filename string) Description {
 	exampleBytes, err := ioutil.ReadFile(filename)
 
 	if err != nil {
-		fmt.Printf("problem reading file %v\n")
+		fmt.Printf("problem reading file %v\n", err)
 		os.Exit(1)
 	}
 
